@@ -2,6 +2,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.com.google.dagger.hilt.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -76,4 +78,6 @@ dependencies {
     implementation(libs.tensorflow.lite.task.vision)
     implementation(libs.tensorflow.lite.gpu.delegate.plugin)
     implementation(libs.tensorflow.lite.gpu)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }
