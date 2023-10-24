@@ -1,5 +1,6 @@
 # ExploreCameraX
 ![Build 'main'](https://github.com/Pouyaa91/ExploreCameraX/actions/workflows/build-main.yml/badge.svg)
+
 ExploreCameraX is a project for detecting landmarks using CameraX and the TensorFlow Lite model for
 Asian landmarks.
 
