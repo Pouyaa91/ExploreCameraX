@@ -1,5 +1,6 @@
 package com.example.explorecamerax.ui
 
+import android.content.res.Configuration
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
@@ -16,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -30,12 +32,21 @@ fun DetectionZoneView(modifier: Modifier = Modifier) {
         ), label = "color transition"
     )
 
-    val screenWidth = LocalConfiguration.current.screenWidthDp.dp
-
     Box(
         modifier = modifier
             .padding(8.dp)
-            .size(screenWidth)
+            .size(getDetectionZoneSize(LocalConfiguration.current))
             .border(2.dp, color, shape = RoundedCornerShape(16.dp))
     )
 }
+
+private fun getDetectionZoneSize(configuration: Configuration): Dp {
+    return if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        configuration.screenHeightDp.dp
+    } else {
+        configuration.screenWidthDp.dp
+    }
+}
+
+
+
